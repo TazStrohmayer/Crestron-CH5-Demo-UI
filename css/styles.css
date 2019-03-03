@@ -87,7 +87,7 @@ button > * {
 }
 
 .header-date-time {
-    width: 250px;
+    width: 220px;
     text-align: right;
     flex: initial;
     padding: 0px 10px 0px 0px;
@@ -100,6 +100,10 @@ button > * {
     border-radius: 5%;
     border-color: transparent;
     margin: 4px
+}
+
+.btn:focus {
+    outline: none;
 }
 
 .btn i {

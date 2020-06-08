@@ -1,3 +1,3 @@
-# Whitlock-Demo-UI
+# Crestron-CH5-Demo-UI
 
-Demo UI for Crestron systems using HTML/CSS/JS
+My first attempt at a demo UI for Crestron systems using HTML/CSS/JS

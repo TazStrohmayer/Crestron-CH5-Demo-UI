@@ -1,14 +1,18 @@
 
 // Animations
-function animateCSS(element, animationName, callback) {
+function animateCSS(element, animation, duration, prefix = 'animate__', callback) {
+  const animationName = `${prefix}${animation}`;
   const node = document.querySelector(element)
-  node.classList.add('animated', animationName)
+  if (typeof duration !== 'undefined') {
+    node.style.setProperty('--animate-duration', `${duration}`);
+  }
+  node.classList.add(`${prefix}animated`, animationName);
 
   function handleAnimationEnd() {
-      node.classList.remove('animated', animationName)
-      node.removeEventListener('animationend', handleAnimationEnd)
+    node.classList.remove(`${prefix}animated`, animationName);
+    node.removeEventListener('animationend', handleAnimationEnd)
 
-      if (typeof callback === 'function') callback()
+    if (typeof callback === 'function') callback()
   }
 
   node.addEventListener('animationend', handleAnimationEnd)
@@ -18,22 +22,20 @@ function animateCSS(element, animationName, callback) {
 function goToLaunch() {
   $(".launch-page").show();
   $(".main-page").hide();
-  animateCSS('.header-title','slideInDown');
   animateCSS('.launch-logo', 'fadeIn');
   animateCSS('.launch-modes', 'fadeIn');
-  animateCSS('.launch-footer-left','slideInUp');
+  animateCSS('.launch-footer-left','fadeIn');
 }
 
 // Page flip to Main
 function goToMain() {
   $(".launch-page").hide();
   $(".main-page").show();
-  animateCSS('.header-logo','slideInDown');
-  animateCSS('.header-date-time','slideInDown');
-  animateCSS('.main-footer-left','slideInUp');
-  animateCSS('.main-footer-center','slideInUp');
-  animateCSS('.main-footer-right','slideInUp');
-  
+  animateCSS('.header-logo','fadeIn');
+  animateCSS('.header-date-time','fadeIn');
+  animateCSS('.main-footer-left','slideInUp', '0.6s');
+  animateCSS('.main-footer-center','slideInUp', '0.6s');
+  animateCSS('.main-footer-right','slideInUp', '0.6s');
 }
 
 goToLaunch();

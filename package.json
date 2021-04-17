@@ -1,0 +1,33 @@
+{
+  "name": "crestron-ch5-demo-ui",
+  "version": "1.0.0",
+  "description": "demo",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "start": "parcel index.html",
+    "build": "parcel build index.html --public-url .",
+    "build:archive": "ch5-cli archive -p test_build -d dist -o tsw",
+    "build:deploy": "ch5-cli deploy -H 10.0.1.53 -t touchscreen tsw/test_build.ch5z -p",
+    "build:onestep": "npm run build && npm run build:archive && npm run build:deploy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TazStrohmayer/Crestron-CH5-Demo-UI.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TazStrohmayer/Crestron-CH5-Demo-UI/issues"
+  },
+  "homepage": "https://github.com/TazStrohmayer/Crestron-CH5-Demo-UI#readme",
+  "dependencies": {
+    "@crestron/ch5-crcomlib": "^1.1.0"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  }
+}

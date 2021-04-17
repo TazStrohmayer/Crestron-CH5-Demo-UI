@@ -1,3 +1,4 @@
+
 // Animations
 function animateCSS(element, animationName, callback) {
   const node = document.querySelector(element)
@@ -34,9 +35,6 @@ function goToMain() {
   animateCSS('.main-footer-right','slideInUp');
   
 }
-
-
-
 
 goToLaunch();
 

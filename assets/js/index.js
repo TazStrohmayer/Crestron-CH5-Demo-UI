@@ -1,3 +1,4 @@
+import * as CrComLib from "@crestron/ch5-crcomlib";
 
 // Animations
 function animateCSS(element, animation, duration, prefix = 'animate__', callback) {
@@ -69,5 +70,10 @@ $(".btn").on("click", function(event) {
     $(".present-sub").hide();
     $(".atc-sub").hide();
     $(".vtc-sub").fadeIn();
+  }
+
+  if (event.target.name === "privacy") {
+    CrComLib.publishEvent("b", "1", true);
+    setTimeout(() => CrComLib.publishEvent("b", "1", false), 200);
   }
 });
